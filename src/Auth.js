@@ -6,7 +6,7 @@ import { supabase } from './supabaseClient'
    supabase.auth.signInWithOAuth({
         provider,
         options: {
-        // redirectTo: redirectTo + ''
+        redirectTo: window.location.href,
         }
       }).then(console.log, console.error);
 
