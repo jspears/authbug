@@ -16,3 +16,11 @@ flex {
   display:flex;
   flex:1;
 }
+
+body {
+  margin: 2rem;
+}
+button {
+  padding: 1rem 2rem;
+  margin:1rem;
+}
