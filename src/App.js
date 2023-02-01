@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css'
+import { useState, useEffect } from 'react'
+import { supabase } from './supabaseClient'
+import Auth from './Auth'
+function logout(){
+  supabase.signOut();
+}
+export default function App() {
+  const [session, setSession] = useState(null)
 
-function App() {
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!session ? <Auth /> : <div>Hello, {session.user.email}
+      <button onClick={logout}>logout</button>
+      </div>}
     </div>
-  );
+  )
 }
 
-export default App;
