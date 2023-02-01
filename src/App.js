@@ -23,6 +23,11 @@ export default function App() {
       {!session ? <Auth /> : <div>Hello, {session.user.email}
       <button onClick={logout}>logout</button>
       </div>}
+
+      <p>Auth Bug Demonstartion  Log in twice
+      
+      Source code <a href="https://github.com/jspears/authbug">source code</a>
+      </p>
     </div>
   )
 }
