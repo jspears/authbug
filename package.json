@@ -2,6 +2,7 @@
   "name": "authbug",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://jspears.github.io/authbug",
   "dependencies": {
     "@supabase/supabase-js": "^2.7.0",
     "@testing-library/jest-dom": "^5.16.5",
