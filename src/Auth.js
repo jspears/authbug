@@ -20,7 +20,9 @@ export default function Auth() {
 
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signInWithOtp({ email })
+      const { error } = await supabase.auth.signInWithOtp({ email, options:{
+        emailRedirectTo:window.location.href
+      } })
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {
