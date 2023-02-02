@@ -28,4 +28,7 @@ button .block {
 .error {
   border: 1px solid red;
   background-color: pink;
+  padding: 1rem;
+  margin: 1rem;
+  display: inline-block;
 }
