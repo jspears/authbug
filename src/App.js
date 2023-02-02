@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import Auth from './Auth'
 function logout(){
-  supabase.signOut();
+  supabase.auth.signOut();
 }
 const params =  new URLSearchParams(window.location.search);
 const error_description = params.get('error_description');
