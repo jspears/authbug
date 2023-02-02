@@ -24,3 +24,8 @@ button .block {
   padding: 1rem 2rem;
   margin:1rem;
 }
+
+.error {
+  border: 1px solid red;
+  background-color: pink;
+}

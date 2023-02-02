@@ -5,6 +5,10 @@ import Auth from './Auth'
 function logout(){
   supabase.signOut();
 }
+const params =  new URLSearchParams(window.location.search);
+const error_description = params.get('error_description');
+const error = params.get('error');
+
 export default function App() {
   const [session, setSession] = useState(null)
 
@@ -23,8 +27,11 @@ export default function App() {
       {!session ? <Auth /> : <div>Hello, {session.user.email}
       <button onClick={logout}>logout</button>
       </div>}
-
-      <p>Auth Bug Demonstartion  Log in twice
+      {(error || error_description) ? <div class='error'>
+        <div>Error {error}</div>
+        <p>{error_description}</p>
+      </div> : null}
+      <p>Auth Bug Demonstration  Log in twice
       
       Source code <a href="https://github.com/jspears/authbug">source code</a>
       </p>
